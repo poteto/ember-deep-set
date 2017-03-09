@@ -27,6 +27,10 @@ test('it does not override keys on the same level', function(assert) {
   assert.deepEqual(result, expectedResult);
 });
 
+test('it throws an error if an existing key is not an object', function(assert) {
+  assert.throws(() => deepSet({ foo: { bar: 123 } }, 'foo.bar.baz', 123));
+});
+
 test('it throws an error if `object` is not an object', function(assert) {
   assert.throws(() => deepSet());
   assert.throws(() => deepSet([]));
