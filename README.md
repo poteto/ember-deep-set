@@ -1,6 +1,17 @@
-# ember-deep-set
+# ember-deep-set ![Download count all time](https://img.shields.io/npm/dt/ember-deep-set.svg) [![CircleCI](https://circleci.com/gh/poteto/ember-deep-set.svg?style=shield)](https://circleci.com/gh/poteto/ember-deep-set) [![npm version](https://badge.fury.io/js/ember-deep-set.svg)](https://badge.fury.io/js/ember-deep-set) [![Ember Observer Score](http://emberobserver.com/badges/ember-deep-set.svg)](http://emberobserver.com/addons/ember-deep-set)
 
-This README outlines the details of collaborating on this Ember addon.
+This is a simple utility function to deeply set a value on an Ember Object or POJO. Note that this mutates the object.
+
+## Usage
+
+```js
+import deepSet from 'ember-deep-set';
+
+let company = {};
+deepSet(company, 'region.department.director.name', 'Jim Bob');
+deepSet(company, 'region.department.name', 'Accounting');
+deepSet(company, 'region.name', 'North America');
+```
 
 ## Installation
 
