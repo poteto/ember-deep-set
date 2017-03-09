@@ -2,6 +2,12 @@
 
 `ember-deep-set` is a simple utility function to deeply set a value on an Ember Object or POJO. Note that this mutates the object.
 
+To install:
+
+```
+ember install ember-deep-set
+```
+
 ## Usage
 
 ```js
