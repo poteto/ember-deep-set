@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {
   assert,
   set,
-  get,
+  getWithDefault,
   typeOf
 } = Ember;
 
@@ -41,18 +41,11 @@ function validateArgs(obj, key) {
  * @param {Any} value
  * @returns {Object}
  */
-export default function deeplySet(obj, key, value) {
-  validateArgs(obj, key, value);
-  let keys = key.split('.');
-  let prev;
-  while (keys.length > 1) {
-    let next = keys.shift();
-    if (prev) {
-      next = `${prev}.${next}`;
-    }
-    set(obj, next, get(obj, next) || {});
-    prev = next;
-  }
-  set(obj, key, value);
-  return obj;
+export default function deepSet(obj, key, value) {
+  validateArgs(obj, key);
+  key.split('.').reduce((acc, currentKey, i, allKeys) => {
+    let valueToSet = allKeys[i + 1] ? getWithDefault(acc, currentKey, {}) : value;
+    return set(acc, currentKey, valueToSet);
+  }, obj);
+  return value;
 }
