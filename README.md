@@ -8,6 +8,16 @@ To install:
 ember install ember-deep-set
 ```
 
+## Why this addon exists
+
+`Ember.set` will throw an error if you try to set a value on a non-existent object. For example:
+
+```js
+Ember.set({}, 'foo.bar.baz', 123); // Property set failed: object in path "foo.bar" could not be found or was destroyed.
+```
+
+With `ember-deep-set`, you can safely and deeply set values on POJOs as well as Ember.Objects without having to first create the empty intermediate objects.
+
 ## Usage
 
 ```js
