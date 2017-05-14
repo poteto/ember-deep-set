@@ -1,6 +1,6 @@
 {
   "name": "ember-deep-set",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Deeply set values on an Ember Object or POJO",
   "keywords": [
     "ember-addon",
