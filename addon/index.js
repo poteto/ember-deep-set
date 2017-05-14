@@ -4,7 +4,8 @@ const {
   assert,
   set,
   getWithDefault,
-  typeOf
+  typeOf,
+  runInDebug
 } = Ember;
 
 /**
@@ -42,7 +43,7 @@ function validateArgs(obj, key) {
  * @returns {Object}
  */
 export default function deepSet(obj, key, value) {
-  validateArgs(obj, key);
+  runInDebug(() => validateArgs(obj, key));
   key.split('.').reduce((acc, currentKey, i, allKeys) => {
     let valueToSet = allKeys[i + 1] ? getWithDefault(acc, currentKey, {}) : value;
     return set(acc, currentKey, valueToSet);

@@ -1,4 +1,4 @@
-# ember-deep-set ![Download count all time](https://img.shields.io/npm/dt/ember-deep-set.svg) [![CircleCI](https://circleci.com/gh/poteto/ember-deep-set/tree/master.svg?style=shield)](https://circleci.com/gh/poteto/ember-deep-set) [![npm version](https://badge.fury.io/js/ember-deep-set.svg)](https://badge.fury.io/js/ember-deep-set) [![Ember Observer Score](http://emberobserver.com/badges/ember-deep-set.svg)](http://emberobserver.com/addons/ember-deep-set)
+# ember-deep-set ![Download count all time](https://img.shields.io/npm/dt/ember-deep-set.svg) [![Build Status](https://travis-ci.org/poteto/ember-deep-set.svg?branch=master)](https://travis-ci.org/poteto/ember-deep-set) [![npm version](https://badge.fury.io/js/ember-deep-set.svg)](https://badge.fury.io/js/ember-deep-set)
 
 `ember-deep-set` is a simple utility function to deeply set a value on an Ember Object or POJO. Note that this mutates the object.
 
