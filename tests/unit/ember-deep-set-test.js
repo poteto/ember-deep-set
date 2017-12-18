@@ -69,6 +69,7 @@ test('it overrides non-objects in key path', function(assert) {
   let expectedResult = { foo: { bar: { baz: 123 } } };
   let obj = { foo: 4 };
   deepSet(obj, 'foo.bar.baz', 123);
+  assert.deepEqual(obj, expectedResult);
 });
 
 test('it does not override keys on the same level', function(assert) {
