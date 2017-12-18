@@ -65,6 +65,12 @@ test('it sets deeply nested values where some exist', function(assert) {
   assert.deepEqual(obj, expectedResult);
 });
 
+test('it overrides non-objects in key path', function(assert) {
+  let expectedResult = { foo: { bar: { baz: 123 } } };
+  let obj = { foo: 4 };
+  deepSet(obj, 'foo.bar.baz', 123);
+});
+
 test('it does not override keys on the same level', function(assert) {
   let expectedResult = { foo: { bar: { baz: 123, qux: 456 } } };
   let obj = { foo: { bar: { qux: 456 } } };
