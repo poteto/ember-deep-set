@@ -16,7 +16,7 @@ module.exports = {
         '--headless',
         '--remote-debugging-port=0',
         '--window-size=1440,900',
-        '--disable-setuid-sandbox'
+        '--no-sandbox'
       ]
     }
   }
