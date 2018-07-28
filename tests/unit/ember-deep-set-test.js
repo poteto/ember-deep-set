@@ -29,6 +29,31 @@ test('it works with non-nested keys', function(assert) {
   });
 });
 
+test('it works with `undefined` as value', function(assert) {
+  // plain object
+  let obj = {};
+  deepSet(obj, 'data', undefined);
+  assert.deepEqual(obj, { data: undefined }, 'it works for plain objects');
+
+  // EmberObject
+  obj = EmberObject.create();
+  deepSet(obj, 'data', undefined);
+  assert.deepEqual(obj.getProperties('data'), { data: undefined }, 'it works for EmberObject');
+
+  // setUnknownProperty
+  obj = EmberObject.extend({
+    setUnknownProperty(key /*, value */) {
+      this[key] = 'unknown property';
+    }
+  }).create({ data: 'foo' });
+  deepSet(obj, 'unknown', undefined);
+  deepSet(obj, 'data', undefined);
+  assert.deepEqual(
+    obj.getProperties('data', 'unknown'), { data: undefined, unknown: 'unknown property' },
+    'it respects setUnknownProperty'
+  );
+});
+
 test("when setting on a POJO - it sets deeply nested values where they don't exist", function(assert) {
   let testData = [
     'foo.bar.baz.qux.name',
