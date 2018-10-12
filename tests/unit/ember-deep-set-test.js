@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import EmberObject, { get } from '@ember/object';
 import deepSet from 'ember-deep-set';
 import { module, test } from 'qunit';
 import getPathFrom from '../helpers/get-path-from';
 
-const { Object: EmberObject, get } = Ember;
 const Dummy = EmberObject.extend({
   path: '',
   value: getPathFrom('path')

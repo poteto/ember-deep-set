@@ -1,12 +1,6 @@
-import Ember from 'ember';
-
-const {
-  assert,
-  set,
-  getWithDefault,
-  typeOf,
-  runInDebug
-} = Ember;
+import { getWithDefault, set } from '@ember/object';
+import { typeOf } from '@ember/utils';
+import { runInDebug, assert } from '@ember/debug';
 
 /**
  * Check if argument is an object.

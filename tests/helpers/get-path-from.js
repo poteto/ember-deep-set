@@ -1,9 +1,4 @@
-import Ember from 'ember';
-
-const {
-  computed,
-  get
-} = Ember;
+import { get, computed } from '@ember/object';
 
 export default function getPathFrom(dependentKey) {
   return computed(dependentKey, function() {
