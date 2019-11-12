@@ -60,8 +60,9 @@ export default function deepSet(obj, key, value) {
       }
       return valueToSet;
     } else {
-      set(acc, currentKey, valueToSet);
-      return acc;
+      // rely on valueToSet as the return value.  Once a primitive, then
+      // in last loop of reduce
+      return set(acc, currentKey, valueToSet);
     }
   }, obj);
   return value;
