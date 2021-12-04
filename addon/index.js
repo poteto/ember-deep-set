@@ -39,8 +39,7 @@ function validateArgs(obj, key) {
 export default function deepSet(obj, key, value) {
   runInDebug(() => validateArgs(obj, key));
   key.split('.').reduce((acc, currentKey, i, allKeys) => {
-    let currentValue =
-      get(acc, currentKey) === undefined ? {} : get(acc, currentKey);
+    let currentValue = get(acc, currentKey) ?? {};
     let valueToSet =
       allKeys[i + 1] && isObject(currentValue)
         ? currentValue
