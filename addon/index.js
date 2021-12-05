@@ -1,4 +1,4 @@
-import { getWithDefault, set } from '@ember/object';
+import { get, set } from '@ember/object';
 import { typeOf } from '@ember/utils';
 import { runInDebug, assert } from '@ember/debug';
 
@@ -39,11 +39,13 @@ function validateArgs(obj, key) {
 export default function deepSet(obj, key, value) {
   runInDebug(() => validateArgs(obj, key));
   key.split('.').reduce((acc, currentKey, i, allKeys) => {
-    let currentValue = getWithDefault(acc, currentKey, {});
+    let currentValue = get(acc, currentKey) ?? {};
     let valueToSet =
-      allKeys[i + 1] && isObject(currentValue)  ? currentValue :
-      allKeys[i + 1] && !isObject(currentValue) ? {} :
-      value;
+      allKeys[i + 1] && isObject(currentValue)
+        ? currentValue
+        : allKeys[i + 1] && !isObject(currentValue)
+        ? {}
+        : value;
     if (valueToSet === undefined) {
       // ember's set method does not handle undefined values correctly in older versions
       // https://github.com/emberjs/ember.js/issues/14270
